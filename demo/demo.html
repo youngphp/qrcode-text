@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>js生成带文字的二维码</title>
+		
+		<script src="../static/js/jquery.min.js" type="text/javascript"></script>
+		<script src="../static/js/qrcode.js" type="text/javascript"></script>
+		<link rel="shortcut icon" href="" />
+	</head>
+	<body>
+        <!-- Modal -->
+        <div>
+            <input class= "url" type="text">请输入二维码地址
+        </div>
+        <div>
+            <input class= "name" type="text">请输入二维码中间名称
+        </div>
+        <div>
+            <button type="button" class="create">生成</button>
+        </div>
+        
+    </body>
+    <script>
+    $(function(){
+        $(".create").click(function(){
+            var url = $(".url").val() ? $(".url").val() : "http://www.shiyunfei.com";
+            var name = $(".name").val();
+            var qrcode = new Qrcode({
+                url:url,
+                text:name,
+            })
+            qrcode.show();
+        })
+    })
+    </script>
+</html>                    
